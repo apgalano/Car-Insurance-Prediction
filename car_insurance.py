@@ -226,7 +226,8 @@ print(train_data.isnull().sum())
 '''
 Missing values are all from categorical data.
 I treat them by replacing with most balanced category with respect to the 
-prediction variable, i.e. CarInsurance, in order to reduce the model's bias. 
+prediction variable, i.e. CarInsurance, in order to reduce the model's bias.
+This results in slightly better accuracy than replacing with the most frequent category. 
 For example, Outcome missing values are at 75% and are replaced by 'other'.
 '''
 train_data['Job'].fillna('management', inplace=True)
