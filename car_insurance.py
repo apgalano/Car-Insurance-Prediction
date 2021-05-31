@@ -322,9 +322,9 @@ end up buying insurance are easier to classify.
 '''
 Next I create a summary for the model output, where I document each feature's
 coefficient in a descending order to highlight some interesting insights of the features.
-Positive coefficients have a positive affect on predicting a customer will buy insurance,
+Positive coefficients have a positive affect on predicting if a customer will buy insurance,
 and negative ones do the opposite. Those close to 0 are probably inconsequential 
-to the model's predictive capabilities. 
+to the model's predictive capabilities, and could be dropped.
 '''
 # Summary
 intercept = regressor.intercept_
