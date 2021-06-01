@@ -334,7 +334,6 @@ summary_table = pd.DataFrame(columns=['Feature'], data = input_data.columns.valu
 summary_table['Coefficient'] = np.transpose(coefs)
 summary_table.index = summary_table.index + 1
 summary_table.loc[0] = ['Intercept',intercept[0]]
-summary_table = summary_table.sort_index()
 summary_table = summary_table.sort_values('Coefficient', ascending=False)
 
 print(summary_table)
