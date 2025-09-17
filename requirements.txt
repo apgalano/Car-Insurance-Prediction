@@ -1,0 +1,13 @@
+# Core ML and data science libraries
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+joblib
+
+# Development and testing
+pytest
+
+# Jupyter for notebooks (optional)
+jupyter
