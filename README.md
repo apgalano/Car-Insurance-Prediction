@@ -106,23 +106,18 @@ python scripts/example_usage.py
 
 ### Making Predictions (Models Ready!)
 
-The repository includes a pre-trained model pipeline in the `models/` directory:
+The repository includes pre-trained models in the `models/` directory:
 
 ```python
+# Option 1: With source code (full pipeline)
 from src.models import CarInsurancePredictor, quick_predict
 
-# Quick prediction
 will_buy = quick_predict(age=30, job='management', balance=2000)
 
-# Detailed prediction
-predictor = CarInsurancePredictor()
-result = predictor.predict_customer(
-    age=35,
-    job='management',
-    marital='married',
-    education='tertiary',
-    balance=1500
-)
+# Option 2: Standalone model (for external use)
+import joblib
+model = joblib.load('models/car_insurance_standalone.pkl')
+result = model.predict_single(age=30, job='management', balance=2000)
 print(f"Will buy: {result['will_buy_insurance']}")
 print(f"Confidence: {result['confidence']:.1%}")
 ```

@@ -4,11 +4,12 @@ This directory contains the trained car insurance prediction models that are rea
 
 ## Files
 
-- `car_insurance_pipeline.pkl` - Complete prediction pipeline including preprocessor and trained model (this is all you need!)
+- `car_insurance_pipeline.pkl` - Complete prediction pipeline (requires source code)
+- `car_insurance_standalone.pkl` - Standalone model for external use (no source code needed)
 
 ## Usage
 
-### Quick Prediction
+### Option 1: With Source Code (Full Pipeline)
 ```python
 from src.models import CarInsurancePredictor
 
@@ -21,8 +22,27 @@ result = predictor.predict_customer(
     job='management',
     marital='married',
     education='tertiary',
-    balance=1500,
-    # ... other parameters
+    balance=1500
+)
+
+print(f"Will buy insurance: {result['will_buy_insurance']}")
+print(f"Confidence: {result['confidence']:.1%}")
+```
+
+### Option 2: External Use (Standalone Model)
+```python
+import joblib
+
+# Load the standalone model (no source code needed)
+model = joblib.load('car_insurance_standalone.pkl')
+
+# Make a prediction
+result = model.predict_single(
+    age=35,
+    job='management',
+    marital='married',
+    education='tertiary',
+    balance=1500
 )
 
 print(f"Will buy insurance: {result['will_buy_insurance']}")
@@ -59,10 +79,26 @@ python scripts/train_model.py
 
 ## Testing
 
-To test if the model is working:
+To test if the models are working:
 ```bash
-python scripts/test_model_ready.py
-python scripts/example_usage.py
+python scripts/test_model_ready.py      # Test pipeline model
+python scripts/example_usage.py         # Usage examples
+python test_standalone_external.py      # Test standalone model
 ```
 
-This will update the models in this directory with the latest training results.
+## Creating Standalone Model
+
+To create/update the standalone model:
+```bash
+python scripts/create_standalone_model.py
+```
+
+## Retraining
+
+To retrain the models with new data:
+```bash
+python scripts/train_model.py
+python scripts/create_standalone_model.py  # Update standalone version
+```
+
+This will update both models in this directory with the latest training results.
