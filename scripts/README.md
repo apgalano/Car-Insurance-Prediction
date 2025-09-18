@@ -36,6 +36,16 @@ This directory contains executable scripts for various project tasks.
   python scripts/demo_structure.py
   ```
 
+- **`create_portable_model.py`** - Create truly portable model for external use
+  ```bash
+  python scripts/create_portable_model.py
+  ```
+
+- **`test_truly_portable.py`** - Test the portable model without dependencies
+  ```bash
+  python scripts/test_truly_portable.py
+  ```
+
 ## Usage
 
 All scripts should be run from the project root directory with the virtual environment activated:

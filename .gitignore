@@ -132,3 +132,5 @@ outputs/models/
 # Ignore large model files in outputs but keep the main models directory
 *.tmp.pkl
 *.tmp.joblib
+# Ignore Python cache in models directory
+models/__pycache__/

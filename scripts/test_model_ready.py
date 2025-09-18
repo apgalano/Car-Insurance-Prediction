@@ -40,6 +40,7 @@ def test_model_availability():
         print("✅ All tests passed! Model is ready for use.")
         print("\n📦 Model files available:")
         print("   • models/car_insurance_pipeline.pkl (complete pipeline)")
+        print("   • models/car_insurance_portable.py (portable model)")
         print("   • models/README.md (usage guide)")
         
         return True

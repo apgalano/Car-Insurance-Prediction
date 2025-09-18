@@ -114,10 +114,9 @@ from src.models import CarInsurancePredictor, quick_predict
 
 will_buy = quick_predict(age=30, job='management', balance=2000)
 
-# Option 2: Standalone model (for external use)
-import joblib
-model = joblib.load('models/car_insurance_standalone.pkl')
-result = model.predict_single(age=30, job='management', balance=2000)
+# Option 2: Portable model (for external use) - Recommended
+from car_insurance_portable import predict_insurance
+result = predict_insurance(age=30, job='management', balance=2000)
 print(f"Will buy: {result['will_buy_insurance']}")
 print(f"Confidence: {result['confidence']:.1%}")
 ```
